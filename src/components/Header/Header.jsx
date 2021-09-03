@@ -1,16 +1,27 @@
-import { Link } from '@material-ui/core';
+// jshint ignore:start
+
+import { Link } from 'react-router-dom';
 import React from 'react';
 import './Header.css';
 
-// jshint ignore:start
-function Header() {
+// function Header() {
+//     return (
+//         <div className="header">
+//             <Link to="/" className="title">Intuitive Quiz Hub</Link>
+//             <hr className="divider" />
+//         </div>
+//     )
+// }
+
+const Header = () => {
     return (
-        <div className="header">
-            <Link to="/" className="title">Intuitive Quiz Hub</Link>
-            <hr className="divider" />
-        </div>
-    )
-}
-
-
+      <div className="header">
+        <Link to="/" className="title">
+          Intuitive Quiz Hub
+        </Link>
+        <hr className="divider" />
+      </div>
+    );
+  };
+  
 export default Header;
