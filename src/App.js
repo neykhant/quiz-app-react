@@ -8,6 +8,12 @@ import Quiz from "./Pages/Quiz/Quiz";
 import Result from "./Pages/Result/Result";
 import { useState } from "react";
 import axios from "axios";
+import red from '@material-ui/core/colors/red';
+import purple from '@material-ui/core/colors/purple';
+
+// const primary = red[500]; // #f44336
+const accent = purple['A200']; // #e040fb
+// const accent = purple.A200; // #e040fb (alternative method)
 
 function App() {
   const [name, setName] = useState("");
@@ -24,7 +30,8 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className="app" style={{ backgroundImage: "url(ques1.png)" }}>
+      {/* <div className="app" style={{ backgroundImage: "url(ques1.png)" }}> */}
+      <div className="app" style={{ backgroundColor: accent }}>
         <Header />
         <Switch>
           <Route path="/" exact>
@@ -46,7 +53,7 @@ function App() {
           </Route>
           <Route path="/result">
             {" "}
-            <Result />
+            <Result name={name} score={score} />
           </Route>
         </Switch>
       </div>
