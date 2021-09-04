@@ -22,19 +22,6 @@ function App() {
       setQuestions(data.results);
   };
 
-//   const fetchQuestions = async (category = "", difficulty = "") => {
-//     const { data } = await axios.get(
-//       `https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}&type=multiple`
-//     );
-
-//     const set = setQuestions(data.results);
-//     console.log(set);
-// console.log(data)
-// setQuestions
-//     console.log('questions', questions);
-//   };
-
-
   return (
     <BrowserRouter>
       <div className="app" style={{ backgroundImage: "url(ques1.png)" }}>

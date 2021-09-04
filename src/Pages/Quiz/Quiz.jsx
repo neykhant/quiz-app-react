@@ -3,8 +3,10 @@ import './Quiz.css';
 import { CircularProgress } from "@material-ui/core";
 import React from "react";
 import { useEffect, useState } from "react";
+import Question from '../../components/Question/Question';
 
 const Quiz = ({ name, questions, score, setQuestions, setScore }) => {
+  // console.log('score', score);
   const [options, setOptions] = useState();
   const [currQues, setCurrQues] = useState(0);
 
@@ -18,12 +20,12 @@ const Quiz = ({ name, questions, score, setQuestions, setScore }) => {
           ...questions[currQues]?.incorrect_answers,
         ])
     );
-  }, [questions, currQues]);
+  }, [currQues, questions]);
 
   console.log('OP',options);
 
-  const handleShuffle = (optionss) => {
-    return optionss.sort(() => Math.random() - 0.5);
+  const handleShuffle = (options) => {
+    return options.sort(() => Math.random() - 0.5);
   };
 
   return <div className="quiz">
@@ -36,6 +38,18 @@ const Quiz = ({ name, questions, score, setQuestions, setScore }) => {
         <span>{questions[currQues].category}</span>
         <span>Score : {score} </span>
       </div>
+
+      <Question
+      currQues={currQues}
+      setCurrQues={setCurrQues}
+      questions={questions}
+      options={options}
+      correct={questions[currQues]?.correct_answer}
+      score={score}
+      setScore={setScore}
+      setQuestions={setQuestions}
+      />
+
       </> : 
       <CircularProgress style={{margin: 100}} color="inherit" 
       size={150}
